@@ -2,8 +2,13 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-todolist',
-  templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.css']
+  template: `
+    <section class="todoapp">
+      <app-header></app-header>
+      <app-main></app-main>
+      <app-footer></app-footer>
+    </section>
+  `,
 })
 export class TodolistComponent implements OnInit {
 

@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { TodolistComponent } from './todolist.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {TodolistService} from './todolist.service';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { CommonModule } from '@angular/common';
     ListComponent,
     ItemComponent
   ],
+  providers: [TodolistService],
   exports: [TodolistComponent]
 })
 export class TodolistModule { }

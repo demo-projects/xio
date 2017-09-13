@@ -1,7 +1,8 @@
-<li>
+<li [ngClass]="{completed : item.completed }">
   <div class="view">
     <input class="toggle"
            [checked]="item.completed"
+           (change)="item.completed = $event.target.checked"
            type="checkbox">
     <label>{{ item.title | xilow }} {{ item.created | date }} </label>
     <button (click)="destroy.emit(item)"

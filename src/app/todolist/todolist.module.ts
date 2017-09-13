@@ -7,10 +7,12 @@ import { TodolistComponent } from './todolist.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TodolistService} from './todolist.service';
+import {UtilsModule} from '../utils/utils.module';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    UtilsModule
   ],
   declarations: [
     TodolistComponent,

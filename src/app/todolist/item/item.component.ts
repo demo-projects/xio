@@ -1,5 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, EventEmitter, Output} from '@angular/core';
 import {Item} from '../item';
+
+// <app-item [item]="{}" (destroy)="">
 
 @Component({
   selector   : 'app-item',
@@ -7,5 +9,6 @@ import {Item} from '../item';
   styleUrls  : ['./item.component.css']
 })
 export class ItemComponent  {
-  public item: Item = new Item('JS');
+  @Input() item: Item;
+  @Output() destroy = new EventEmitter<Item>();
 }

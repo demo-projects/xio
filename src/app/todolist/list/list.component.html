@@ -1,3 +1,6 @@
 <ul class="todo-list">
-  <app-item></app-item>
+  <app-item *ngFor="let i of list.items"
+             [item]="i"
+             (destroy)="list.removeItem(i)">
+  </app-item>
 </ul>

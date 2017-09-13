@@ -3,7 +3,7 @@
     <input class="toggle"
            [checked]="item.completed"
            type="checkbox">
-    <label>{{ item.title }}</label>
+    <label>{{ item.title | xilow }} {{ item.created | date }} </label>
     <button (click)="destroy.emit(item)"
             class="destroy"></button>
   </div>

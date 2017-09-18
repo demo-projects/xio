@@ -1,12 +1,12 @@
-<li [ngClass]="{completed : item.completed }">
+<li [ngClass]="{completed : item.completed, editing: editMode}">
   <div class="view">
     <input class="toggle"
            [checked]="item.completed"
            (change)="item.completed = $event.target.checked"
            type="checkbox">
-    <label>{{ item.title | xilow }} {{ item.created | date }} </label>
+    <label (dblclick)="toggleEditMode(true)">{{ item.title | xilow }} {{ item.created | date }} </label>
     <button (click)="destroy.emit(item)"
             class="destroy"></button>
   </div>
-  <input class="edit">
+  <input (keydown.enter)="toggleEditMode(false)" class="edit">
 </li>

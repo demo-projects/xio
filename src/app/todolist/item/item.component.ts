@@ -8,7 +8,17 @@ import {Item} from '../item';
   templateUrl: './item.component.html',
   styleUrls  : ['./item.component.css']
 })
-export class ItemComponent  {
+export class ItemComponent {
   @Input() item: Item;
   @Output() destroy = new EventEmitter<Item>();
+
+  public editMode: boolean;
+
+  constructor() {
+    this.editMode = false;
+  }
+
+  toggleEditMode(flag: boolean) {
+    this.editMode = flag;
+  }
 }

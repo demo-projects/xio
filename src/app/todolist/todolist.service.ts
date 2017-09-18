@@ -1,7 +1,8 @@
-import {Item} from './item';
-import {LoggerService} from '../utils/logger.service';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
+import {LoggerService} from '../utils/logger.service';
 import {StorageService} from '../utils/storage.service';
+import {Item} from './item';
 
 @Injectable()
 export class TodolistService {
@@ -10,10 +11,16 @@ export class TodolistService {
   private logger: LoggerService;
   private storage: StorageService;
 
-  constructor(logger: LoggerService, storage: StorageService) {
-    this.logger = logger;
+  constructor(logger: LoggerService, storage: StorageService, http: HttpClient) {
+    this.logger  = logger;
     this.storage = storage;
-    this._items = storage.get() || [];
+    this._items  = storage.get() || [];
+
+    setTimeout(() => this._items = [], 5000);
+
+    // fetch data from serve
+    http.get<Item[]>('https://jsonplaceholder.typicode.com/todos')
+        .subscribe(items => this._items = items);
   }
 
   public get items(): Item[] {

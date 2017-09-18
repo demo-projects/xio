@@ -8,11 +8,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {TodolistService} from './todolist.service';
 import {UtilsModule} from '../utils/utils.module';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
     CommonModule,
-    UtilsModule
+    UtilsModule,
+    HttpClientModule
   ],
   declarations: [
     TodolistComponent,
